@@ -88,6 +88,13 @@ const data = [
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`,
   },
+  {
+    baslik: "kahsghfajdjhagh",
+    tarih: "21 Haziran 2023",
+    ilkParagraf: `llsfkhjsafh`,
+    ikinciParagraf: `ladkfaldjkhf`,
+    ucuncuParagraf: `lajkldhjgakhjfgh`,
+  },
 ];
 
 /*
@@ -126,22 +133,25 @@ function haberYapici(haberler) {
   const paragraph1 = document.createElement("p");
   const paragraph2 = document.createElement("p");
   const paragraph3 = document.createElement("p");
-  article.appendChild(articleTitle);
-  article.appendChild(date);
-  article.appendChild(button);
-  article.appendChild(paragraph1);
-  article.appendChild(paragraph2);
-  article.appendChild(paragraph3);
-  document.querySelector(".articles").appendChild(article);
+  article.append(
+    articleTitle,
+    date,
+    button,
+    paragraph1,
+    paragraph2,
+    paragraph3
+  );
   paragraph1.textContent = haberler.ilkParagraf;
   paragraph2.textContent = haberler.ikinciParagraf;
   paragraph3.textContent = haberler.ucuncuParagraf;
   articleTitle.textContent = haberler.baslik;
   button.textContent = "+";
-  document.querySelector(".tarih").textContent = haberler.tarih;
+  date.textContent = haberler.tarih;
+  document.querySelector(".articles").appendChild(article);
   button.addEventListener("click", () =>
     article.classList.toggle("article-open")
   );
+  return article;
 }
 
 for (let i = 0; i < data.length; i++) {

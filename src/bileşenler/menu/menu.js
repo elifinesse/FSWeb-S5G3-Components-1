@@ -49,5 +49,6 @@ function menuYapici(menu) {
     tumMenu.classList.toggle("menu--open");
   });
   document.querySelector(".header").appendChild(tumMenu);
+  return tumMenu;
 }
 menuYapici(menuElemanlari);
